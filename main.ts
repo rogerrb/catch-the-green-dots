@@ -9,24 +9,6 @@ sprites.onDestroyed(SpriteKind.Food, function (sprite) {
     }
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    projectile = sprites.createProjectileFromSprite(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        `, mySprite, 50, 50)
     mySprite3 = sprites.create(img`
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
@@ -58,14 +40,13 @@ sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSp
     sprite.destroy()
 })
 info.onLifeZero(function () {
-    game.over(false, effects.confetti)
+    game.over(false, effects.splatter)
 })
 sprites.onDestroyed(SpriteKind.Enemy, function (sprite) {
     info.changeLifeBy(-1)
 })
 let mySprite2: Sprite = null
 let mySprite3: Sprite = null
-let projectile: Sprite = null
 let mySprite: Sprite = null
 let Ekstraliv = 0
 Ekstraliv = 0
