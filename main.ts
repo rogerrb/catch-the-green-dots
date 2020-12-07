@@ -51,6 +51,7 @@ sprites.onDestroyed(SpriteKind.Player, function (sprite) {
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
     otherSprite.destroy()
+    sprite.destroy()
 })
 let Enemy1: Sprite = null
 let Food1: Sprite = null
