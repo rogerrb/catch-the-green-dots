@@ -31,9 +31,6 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         `, Player1, 0, -50)
     music.pewPew.play()
 })
-controller.anyButton.onEvent(ControllerButtonEvent.Released, function () {
-    Player1.setVelocity(0, 0)
-})
 sprites.onOverlap(SpriteKind.Food, SpriteKind.Player, function (sprite, otherSprite) {
     sprite.destroy()
 })
