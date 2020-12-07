@@ -3,8 +3,7 @@
     "version": "0.1.1",
     "description": "",
     "dependencies": {
-        "device": "*",
-        "darts": "*"
+        "device": "*"
     },
     "files": [
         "main.blocks",
