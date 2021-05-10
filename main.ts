@@ -58,6 +58,7 @@ let Food1: Sprite = null
 let projectile: Sprite = null
 let Player1: Sprite = null
 let Ekstraliv = 0
+let Speed = 10
 Ekstraliv = 0
 info.setScore(0)
 info.setLife(3)
@@ -101,9 +102,9 @@ game.onUpdateInterval(5000, function () {
         . . . . . . . . . . . . . . . . 
         `, SpriteKind.Food)
     Food1.setPosition(randint(0, 160), 0)
-    Food1.setVelocity(0, 10)
+    Food1.setVelocity(0, Speed / 2 + randint(0, Speed))
 })
-game.onUpdateInterval(1000, function () {
+game.onUpdateInterval(2000, function () {
     Enemy1 = sprites.create(img`
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
@@ -123,5 +124,9 @@ game.onUpdateInterval(1000, function () {
         . . . . . . . . . . . . . . . . 
         `, SpriteKind.Enemy)
     Enemy1.setPosition(randint(0, 160), 0)
-    Enemy1.setVelocity(0, 10)
+    Enemy1.setVelocity(0, Speed)
+})
+forever(function () {
+    pause(5000)
+    Speed += 2
 })
