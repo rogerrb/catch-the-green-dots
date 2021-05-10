@@ -102,6 +102,7 @@ game.onUpdateInterval(5000, function () {
         `, SpriteKind.Food)
     Food1.setPosition(randint(0, 160), 0)
     Food1.setVelocity(0, Speed / 2 + randint(0, Speed))
+    Food1.setFlag(SpriteFlag.AutoDestroy, true)
 })
 game.onUpdateInterval(2000, function () {
     Enemy1 = sprites.create(img`
@@ -124,6 +125,7 @@ game.onUpdateInterval(2000, function () {
         `, SpriteKind.Enemy)
     Enemy1.setPosition(randint(0, 160), 0)
     Enemy1.setVelocity(0, Speed)
+    Enemy1.setFlag(SpriteFlag.AutoDestroy, true)
 })
 forever(function () {
     pause(5000)
