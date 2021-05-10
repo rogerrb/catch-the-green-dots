@@ -27,6 +27,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . . . . . . . . . . . . . . 
         `, Player1, 0, -50)
     music.pewPew.play()
+    projectile.setFlag(SpriteFlag.AutoDestroy, true)
 })
 sprites.onOverlap(SpriteKind.Food, SpriteKind.Player, function (sprite, otherSprite) {
     sprite.destroy()
@@ -104,7 +105,7 @@ game.onUpdateInterval(5000, function () {
     Food1.setVelocity(0, Speed / 2 + randint(0, Speed))
     Food1.setFlag(SpriteFlag.AutoDestroy, true)
 })
-game.onUpdateInterval(2000, function () {
+game.onUpdateInterval(1000, function () {
     Enemy1 = sprites.create(img`
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
