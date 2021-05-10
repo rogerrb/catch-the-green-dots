@@ -1,7 +1,4 @@
 sprites.onDestroyed(SpriteKind.Food, function (sprite) {
-    info.changeScoreBy(1)
-    music.powerUp.play()
-    Ekstraliv += 1
     if (Ekstraliv > 9) {
         music.baDing.play()
         info.changeLifeBy(1)
@@ -29,11 +26,13 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . . . . 4 4 4 4 . . . . . . 
         . . . . . . . . . . . . . . . . 
         `, Player1, 0, -50)
-    projectile.setFlag(SpriteFlag.AutoDestroy, true)
     music.pewPew.play()
 })
 sprites.onOverlap(SpriteKind.Food, SpriteKind.Player, function (sprite, otherSprite) {
     sprite.destroy()
+    info.changeScoreBy(1)
+    music.powerUp.play()
+    Ekstraliv += 1
 })
 sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSprite) {
     music.jumpDown.play()
@@ -81,7 +80,6 @@ Player1 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Player)
 Player1.setPosition(73, 56)
-Player1.setBounceOnWall(true)
 controller.moveSprite(Player1)
 game.onUpdateInterval(5000, function () {
     Food1 = sprites.create(img`
@@ -102,15 +100,10 @@ game.onUpdateInterval(5000, function () {
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         `, SpriteKind.Food)
-    Food1.setFlag(SpriteFlag.AutoDestroy, true)
     Food1.setPosition(randint(0, 160), 0)
     Food1.setVelocity(0, Speed / 2 + randint(0, Speed))
 })
-forever(function () {
-    pause(5000)
-    Speed += 2
-})
-game.onUpdateInterval(500, function () {
+game.onUpdateInterval(2000, function () {
     Enemy1 = sprites.create(img`
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
@@ -129,7 +122,10 @@ game.onUpdateInterval(500, function () {
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         `, SpriteKind.Enemy)
-    Enemy1.setFlag(SpriteFlag.AutoDestroy, true)
     Enemy1.setPosition(randint(0, 160), 0)
     Enemy1.setVelocity(0, Speed)
+})
+forever(function () {
+    pause(5000)
+    Speed += 2
 })
