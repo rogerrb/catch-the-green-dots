@@ -80,6 +80,7 @@ Player1 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Player)
+Player1.setStayInScreen(true)
 Player1.setPosition(73, 56)
 controller.moveSprite(Player1)
 game.onUpdateInterval(5000, function () {
